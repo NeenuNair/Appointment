@@ -1,0 +1,49 @@
+<div class='card'>
+    <form (ngSubmit)="updateAppointment()">
+        <div class='card-header'>
+            {{title}}
+        </div>
+        <div class='card-body'>
+            <div class='table-responsive'>
+                <table class='table'>
+                    <tbody>
+
+                        <tr>
+                            <td><label>Name</label></td>
+                            <td><input type="text" name="a_name" [(ngModel)] ="appointmentItem.name"/></td>
+                        </tr>
+
+                        <tr>
+                            <td><label>Date of Birth</label></td>
+                            <td><input type="date" name="o_age" [(ngModel)] ="appointmentItem.age"/></td>
+                        </tr>
+
+                        <tr>
+                            <td><label>Place</label></td>
+                            <td><input type="text" name="a_place" [(ngModel)] ="appointmentItem.place"/></td>
+                        </tr>
+
+                        <tr>
+                            <td><label>Mobile Number</label></td>
+                            <td><input type="text" name="a_numb" [(ngModel)] ="appointmentItem.phoneNumber"/></td>
+                        </tr>
+
+                        <tr>
+                            <td><label>Date of Appointment</label></td>
+                            <td><input type="text" name="a_date" [(ngModel)] ="appointmentItem.date"/></td>
+                        </tr>
+
+
+                        <tr>
+                            <td></td>
+                            <td><button class="btn btn-custom">Submit</button></td>
+                        </tr>
+                    </tbody>
+                </table>
+
+            </div>
+        </div>
+    </form>
+
+</div>
+

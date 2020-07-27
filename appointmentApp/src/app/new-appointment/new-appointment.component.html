@@ -1,0 +1,57 @@
+<div class='card'>
+    <form (ngSubmit)="AddAppointment()">
+        <div class='card-header'>
+            {{title}}
+        </div>
+        <div class='card-body'>
+            <div class='table-responsive'>
+                <table class='table'>
+                    <tbody>
+
+                        <tr>
+                            <td><label>Name</label></td>
+                            <td><input type="text" name="a_name" [(ngModel)] ="appointmentItem.name"/></td>
+                        </tr>
+
+                        <tr>
+                            <td><label>Date of Birth</label></td>
+                            <td><input type="date" name="o_age" [(ngModel)] ="appointmentItem.age"/></td>
+                        </tr>
+
+                        <tr>
+                            <td><label>Place</label></td>
+                            <td><input type="text" name="a_place" [(ngModel)] ="appointmentItem.place"/></td>
+                        </tr>
+
+                        <tr>
+                            <td><label>Mobile Number</label></td>
+                            <td><input type="text" name="a_numb" [(ngModel)] ="appointmentItem.phoneNumber"/></td>
+                        </tr>
+
+                        <tr>
+                            <td><label>Date of Appointment</label></td>
+                            <td><input type="date" name="a_date" [(ngModel)] ="appointmentItem.date" required ></td>
+                        </tr>
+                        <!-- <tr>
+                            available slots <br>
+
+<a *ngIf="appointmentItem.slot1=='available'" class = "btn btn-primary" (click)=" bookdate(1,1)"></a>
+<a *ngIf="appointmentItem.slot2=='available'" class = "btn btn-primary" (click)="bookdate(1,2)"></a>
+<a *ngIf="appointmentItem.slot3=='available'" class = "btn btn-primary" (click)=" bookdate(1,3)"></a>
+<a *ngIf="appointmentItem.slot4=='available'" class = "btn btn-primary" (click)=" bookdate(1,4)"></a>
+<a *ngIf="appointmentItem.slot5=='available'" class = "btn btn-primary" (click)=" bookdate(1,5)"></a>
+                        </tr> -->
+
+
+                        <tr>
+                            <td></td>
+                            <td><button class="btn btn-custom">Submit</button></td>
+                        </tr>
+                    </tbody>
+                </table>
+
+            </div>
+        </div>
+    </form>
+
+</div>

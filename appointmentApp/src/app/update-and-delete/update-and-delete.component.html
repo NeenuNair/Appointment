@@ -1,0 +1,43 @@
+<div class="card">
+    <div class="card-header">
+        {{title}}
+    </div>
+</div>
+
+  <div class="card-body">
+
+
+    <div class="table-responsive">
+    <table class="table table-striped table-bordered table-hover"> 
+
+        <thead class="thead-custom">
+             <tr>
+                <th>NAME</th>
+                <th>AGE</th>
+                <th>PLACE</th>
+                <th>PHONE NUMBER</th>
+                <th>APPOINTMENT DATE </th>
+                <th>UPDATE</th>
+                <th>DELETE</th>
+            </tr>
+        </thead>
+
+          <tbody>
+            <tr *ngFor='let appointment of appointments'>
+               
+               <td>{{ appointment.name }}</td>
+               <td>{{appointment.age }}</td>
+               <td>{{ appointment.place }}</td>
+               <td>{{appointment.phoneNumber }}</td>
+               <td>{{appointment.date}}</td>
+
+               <td><button class="btn btn-custom" [routerLink]="['/update',appointment._id]">Update</button></td>
+               <td><button class="btn btn-custom" (click)="deleteAppointment(appointment._id)">Delete</button></td>
+            </tr>
+          </tbody>    
+
+    </table>
+  </div>
+</div>
+
+
