@@ -1,6 +1,6 @@
 *{
     margin: 0;
-    padding-left: 10px;
+    padding-left: 5px;
     box-sizing: border-box;
   }
 
@@ -9,6 +9,7 @@
     margin-bottom: auto;
     text-align: center;
     background-color: rgb(165, 164, 164,0.6);
+    color: rgb(199, 0, 57);
     font-weight: lighter;
     font-family: 'Times New Roman', Times, serif;
   }
@@ -63,7 +64,7 @@
     box-shadow: 0 5px 10px rgb(23, 61, 143);
   }
   .bg-custom-1{
-    background-color:rgb(221, 253, 253)!important;
+    background-color:#CC99FF!important;
   }
 
   .bg-custom-1:hover{
@@ -81,7 +82,7 @@
     font-family: 'Times New Roman', Times, serif;
     text-align: left; 
     font-size: 16px;
-    color:rgb(160, 17, 105);
+    color:rgb(199, 0, 57);
   }
   .card-title{
     font-family: 'Times New Roman', Times, serif;

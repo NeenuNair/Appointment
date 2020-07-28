@@ -17,8 +17,8 @@ export class AppointmentService {
   }
 
   newAppointment(item){
-    return this.http.post("http://localhost:3000/api/insert",{"appointment":item})
-    .subscribe(data =>{console.log(data)})
+    return this.http.post("http://localhost:3000/api/insert",{"appointment":item});
+    
   }
 
   updateAppointment(item){

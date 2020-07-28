@@ -10,39 +10,60 @@
 
                         <tr>
                             <td><label>Name</label></td>
-                            <td><input type="text" name="a_name" [(ngModel)] ="appointmentItem.name"/></td>
+                            <td class="row"><input type="text" name="a_name" [(ngModel)] ="appointmentItem.name"  placeholder="Enter your Name"></td>
                         </tr>
 
                         <tr>
-                            <td><label>Date of Birth</label></td>
-                            <td><input type="date" name="o_age" [(ngModel)] ="appointmentItem.age"/></td>
+                            <td><label>Age</label></td>
+                            <td class="row"><input type="text" name="a_age" [(ngModel)] ="appointmentItem.age"placeholder="Enter your Age"></td>
                         </tr>
 
-                        <tr>
+                        <!-- <tr>
                             <td><label>Place</label></td>
                             <td><input type="text" name="a_place" [(ngModel)] ="appointmentItem.place"/></td>
+                        </tr> -->
+                        <tr>
+                            <td><label>Department</label></td>
+                            <td class="row">
+                                <select name="a-dep" class="form-control" [(ngModel)] ="appointmentItem.place" >
+                                    <option value="null">Select yourDepartment</option>
+                                    <option value="{{item.ids}}" *ngFor="let item of department_values">
+                                        {{item.labels}}
+                                    </option>
+                                  </select>
+                            </td>
                         </tr>
 
                         <tr>
                             <td><label>Mobile Number</label></td>
-                            <td><input type="text" name="a_numb" [(ngModel)] ="appointmentItem.phoneNumber"/></td>
+                            <td class="row"><input type="text" name="a_numb" [(ngModel)] ="appointmentItem.phoneNumber" placeholder="Enter your Phone Number"></td>
                         </tr>
 
                         <tr>
                             <td><label>Date of Appointment</label></td>
-                            <td><input type="date" name="a_date" [(ngModel)] ="appointmentItem.date" required ></td>
+                            <!-- <td><input type="date" name="a_date" [(ngModel)] ="appointmentItem.date" required ></td> -->
+                           <td class="row">
+                            <input type="text" id="adate"
+                            placeholder="Select Appointment Date"
+                            [minDate]="minDate"
+                            [maxDate]="maxDate"
+                             name="a_date" [(ngModel)] ="appointmentItem.date" required
+                            bsDatepicker>
+                           </td> 
                         </tr>
-                        <!-- <tr>
-                            available slots <br>
-
-<a *ngIf="appointmentItem.slot1=='available'" class = "btn btn-primary" (click)=" bookdate(1,1)"></a>
-<a *ngIf="appointmentItem.slot2=='available'" class = "btn btn-primary" (click)="bookdate(1,2)"></a>
-<a *ngIf="appointmentItem.slot3=='available'" class = "btn btn-primary" (click)=" bookdate(1,3)"></a>
-<a *ngIf="appointmentItem.slot4=='available'" class = "btn btn-primary" (click)=" bookdate(1,4)"></a>
-<a *ngIf="appointmentItem.slot5=='available'" class = "btn btn-primary" (click)=" bookdate(1,5)"></a>
-                        </tr> -->
-
-
+                        
+                        <tr>
+                            <td><label>Time Slot</label></td>
+                            <td class="row" >
+                                <select name="a-slot" class="form-control" [(ngModel)] ="appointmentItem.slot" >
+                                    <option  value="null">Select your slot</option>
+                                    <option value="{{item.id}}" *ngFor="let item of slot_values">
+                                        {{item.label}}
+                                    </option>
+                                  </select>
+                            </td>
+                        </tr>
+                        
                         <tr>
                             <td></td>
                             <td><button class="btn btn-custom">Submit</button></td>

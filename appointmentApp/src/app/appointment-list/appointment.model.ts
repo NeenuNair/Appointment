@@ -4,6 +4,7 @@ export class AppointmentModel{
             public age : number,
             public place : string,
             public phoneNumber : number,
-            public date : string
+            public date : any,
+            public slot : string
           ){}
     }

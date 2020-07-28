@@ -2,7 +2,8 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 // import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
-// import { BsDatepickerModule } from 'ngx-bootstrap/datepicker';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { BsDatepickerModule } from 'ngx-bootstrap/datepicker';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { RegisterComponent } from './register/register.component';
@@ -37,8 +38,8 @@ import { UpdateAndDeleteComponent } from './update-and-delete/update-and-delete.
     BrowserModule,
     AppRoutingModule,
     FormsModule,
-    // NgbModule,
-    // BsDatepickerModule.forRoot(),
+    BrowserAnimationsModule,
+    BsDatepickerModule.forRoot(),
     HttpClientModule 
   ],
   providers: [AuthService, AuthGuard, HomeService,

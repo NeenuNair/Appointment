@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { AppointmentService } from '../appointment.service';
 import { AppointmentModel } from  '../appointment-list/appointment.model';
+import {AppConstants} from '../app-constants';
+import {AppDepartments} from '../app-department';
 import { Router } from '@angular/router'
 
 @Component({
@@ -10,27 +12,50 @@ import { Router } from '@angular/router'
 })
 export class NewAppointmentComponent implements OnInit {
   title:String = "Add Appointment";
-  // minDate: Date;
-  // maxDate: Date;
-  // book: Date;
+  minDate: Date;
+  maxDate: Date;
+  slot_values: any = AppConstants.time_slots;
+  department_values: any = AppDepartments.department_slots;
+  
+  
  
   constructor(private appointmentService: AppointmentService, private router:Router) { 
-    // this.minDate = new Date();
-    // this.maxDate = new Date();
-    // this.minDate.setDate(this.minDate.getDate());
-    // this.maxDate.setDate(this.maxDate.getDate() + 2);
+    this.minDate = new Date();
+    this.maxDate = new Date();
+    this.minDate.setDate(this.minDate.getDate());
+    this.maxDate.setDate(this.maxDate.getDate() + 2);
+
   }
-  appointmentItem = new AppointmentModel(null,null,null,null,null);
+
+  appointmentItem = new AppointmentModel(null,null,null,null,null,null);
 
   ngOnInit(): void {
   }
   AddAppointment()
   {
-    
-    this.appointmentService.newAppointment(this.appointmentItem)
     console.log("Called");
-    alert("Your Appointment added Successfully!!");
-    this.router.navigate(['/delete']);
+    // let date=document.getElementById('adate')['value'].toLocaleDateString();
+    // console.log(date)
+    this.appointmentItem.date =this.appointmentItem.date.toLocaleDateString();
+  // this.appointmentItem.date="07/30/2020"
+    this.appointmentService.newAppointment(this.appointmentItem)
+    .subscribe(
+      (res:any)=>
+      {
+        if(res.message=="OK")
+        {
+          alert("Your Appointment added Successfully!!");
+          this.router.navigate(['/delete']);
+          console.log(this.appointmentItem.date);
+        }
+        else
+        {
+          alert("This Slot not available")
+        }
+      }
+      )
+    
+    
   }
 
 }

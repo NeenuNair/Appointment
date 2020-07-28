@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { AppointmentService } from '../appointment.service';
 import { AppointmentModel } from  '../appointment-list/appointment.model';
+import {AppConstants} from '../app-constants';
+import {AppDepartments} from '../app-department';
 import { Router, ActivatedRoute} from '@angular/router'
 
 
@@ -12,7 +14,12 @@ import { Router, ActivatedRoute} from '@angular/router'
 export class UpdateComponent implements OnInit {
 
   title:String = "Update Appointment List";
-  appointmentItem = new AppointmentModel(null,null,null,null,null);
+  minDate: Date;
+  maxDate: Date;
+  slot_values: any = AppConstants.time_slots;
+  department_values: any = AppDepartments.department_slots;
+  
+  appointmentItem = new AppointmentModel(null,null,null,null,null,null);
   id;
   sub;
 

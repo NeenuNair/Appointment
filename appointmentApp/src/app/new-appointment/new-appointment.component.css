@@ -1,7 +1,11 @@
+*{
+    margin-top: 2%;
+}
 .card-header{
     font-size: 20px;
     font-family: 'Times New Roman', Times, serif;
     padding-left: 2.5%;
+    
 }
 
 .thead-custom{
@@ -15,13 +19,20 @@ td{
     font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
     font-weight: lighter;
     font-size: 17px;
-    color:#9999FF;
+    width: 40%;
+    color:rgb(199, 0, 57) ;
+
 }
+.row{
+    width: 43%;
+    border: black 1px ;
+}
+
 
 .btn-custom{
     font-size: 17px;
     font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
     color: rgb(252, 248, 248);
-    background-color: #9999FF;
+    background-color: #CC6699;
     text-align: center;
 }

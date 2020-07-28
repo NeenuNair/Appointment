@@ -11,9 +11,10 @@
                        
                         <th>Name</th>
                         <th>Age</th>
-                        <th>Place</th>
+                        <th>Department</th>
                         <th>Phone Number</th>
                         <th>Appointment Date</th>
+                        <th>Appointment SLOT</th>
                        
                     </tr>
                 </thead>
@@ -22,9 +23,10 @@
                        
                     <td>{{ appointment.name }}</td>
                     <td>{{ appointment.age }}</td>
-                    <td>{{ appointment.place }}</td>
+                    <td>{{getDepartmentLabel(appointment.place)}}</td>
                     <td>{{ appointment.phoneNumber }}</td>
                     <td>{{ appointment.date }}</td>
+                    <td>{{getSlotLabel(appointment.slot)}}</td>
                 </tr>
             </tbody>        
       </table>
