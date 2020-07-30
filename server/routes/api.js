@@ -38,28 +38,58 @@ router.get('/home', (req,res) => {
   console.log(req.body);
 });
 
-router.get('/appointments',verifyToken,function(req,res){
+router.get('/allAppointments',(req,res)=>
+{
+  res.header("Access-Control-Allow-Origin", "*")
+    res.header("Access-Control-Allow-Methods: GET, POST, PATCH, PUT, DELETE, OPTIONS");
+    AppointmentData.find()
+               .then(function(appointments){
+                    console.log(appointments)
+                res.send(appointments);          
+               });
+});
+
+router.post('/appointments',verifyToken,function(req,res){
   res.header("Access-Control-Allow-Origin","*")
   res.header('Access-Control-Allow-Methods: GET,POST,PATCH,PUT,DELETE,OPTIONS')
-  AppointmentData.find()
-        .then(function(appointments){
-            res.send(appointments);
-        });
-});
+  const uId=req.body.userId;
+    console.log("Id"+uId)
+    AppointmentData.find({userId:uId})
+               .then(function(appointment){
+                    console.log("log"+appointment)
+                res.send(appointment);          
+               });
+  });
+
 router.post('/insert',verifyToken,function(req,res){
   res.header("Access-Control-Allow-Origin", "*")
   res.header("Access-Control-Allow-Methods: GET, POST, PATCH, PUT, DELETE, OPTIONS");
   console.log(req.body.appointment);
   var appointment= {
       name : req.body.appointment.name,
+      userId : req.body.appointment.userId,
       age : req.body.appointment.age,
       place : req.body.appointment.place,
       phoneNumber : req.body.appointment.phoneNumber,
-      date : req.body.appointment.date
+      date : req.body.appointment.date,
+      slot : req.body.appointment.slot
       
   }
   var appointment = new AppointmentData(appointment);
-  appointment.save();
+  AppointmentData.findOne({place:appointment.place,date:appointment.date,slot:appointment.slot},
+    (error,result)=>{
+      console.log(result);
+      if(!result)
+      {
+        
+        appointment.save();
+        res.send({message:"OK"})
+      }
+      else
+      {
+        res.send({message:"Slot Taken!"})
+      }
+    })
 });
 
 router.post('/edit',verifyToken,function(req,res){
@@ -91,7 +121,8 @@ router.post('/update',verifyToken,function(req,res){
       age : req.body.appointment.age,
       place : req.body.appointment.place,
       phoneNumber : req.body.appointment.phoneNumber,
-      date : req.body.appointment.date
+      date : req.body.appointment.date,
+      slot : req.body.appointment.slot
   }})
       .then(function(appointments){
           res.send(appointments);
@@ -125,31 +156,31 @@ user.save((err, registeredUser) => {
   if (err) {
     console.log(err)      
   } else {
-    let payload = {subject: registeredUser._id}
-    let token = jwt.sign(payload, 'secretKey')
-    res.status(200).send({token})
+    // let payload = {subject: registeredUser._id}
+    // let token = jwt.sign(payload, 'secretKey')
+    // res.status(200).send({token})
+    res.send({message:"Successfully Signed Up!"})
   }
 })
 })
 
 router.post('/login', (req, res) => {
-let userData = req.body
-User.findOne({email: userData.email}, (err, user) => {
-  if (err) {
-    console.log(err)    
-  } else {
-    if (!user) {
-      res.status(401).send('Invalid Email')
-    } else 
-    if ( user.password !== userData.password) {
-      res.status(401).send('Invalid Password')
+  let userData = req.body
+  console.log(userData)
+  User.findOne({email: userData.email,password:userData.password}, (err, user) => {
+    if (err) {
+      console.log(err)    
     } else {
-      let payload = {subject: user._id}
-      let token = jwt.sign(payload, 'secretKey')
-      res.status(200).send({token})
+      if (!user) {
+        res.status(401).send('Invalid Credentials')
+      }  
+     else {
+        let payload = {subject: user._id,type:user.type}
+        let token = jwt.sign(payload, 'secretKey')
+        res.status(200).send({token})
+      }
     }
-  }
-})
-})
+  })
+  })
 
 module.exports = router;
