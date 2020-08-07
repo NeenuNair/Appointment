@@ -9,14 +9,17 @@
       <li class="nav-item ">
         <a class="nav-link" routerLink="/" routerLinkActive="active">HOME</a>
       </li>
+         &nbsp; &nbsp; &nbsp;
       <li class="nav-item">
-        <a class="nav-link" routerLink="/addappointment" *ngIf="_auth.userRole()!='admin'" routerLinkActive="active">BOOK AN APPOINTMENT</a>
+        <a class="nav-link" routerLink="/addappointment" *ngIf="_auth.userRole()!='admin'" routerLinkActive="active">Appointment Booking</a>
       </li>
+      &nbsp; &nbsp; &nbsp;
       <li class="nav-item">
-        <a class="nav-link" routerLink="/delete" *ngIf="_auth.userRole()!='admin'" routerLinkActive="active">EDIT/DELETE APPOINTMENT</a>
+        <a class="nav-link" routerLink="/delete" *ngIf="_auth.userRole()!='admin'" routerLinkActive="active">Cancel/Change Appointment</a>
       </li>
+      &nbsp; &nbsp; &nbsp;
       <li class="nav-item">
-        <a class="nav-link" routerLink="/appointments" *ngIf="_auth.userRole()!='user'" routerLinkActive="active">BOOKED APPOINTMENTS</a>
+        <a class="nav-link" routerLink="/appointments" *ngIf="_auth.userRole()!='user'" routerLinkActive="active">Booked Appointments</a>
       </li>
     </ul>
     <ul class="navbar-nav">

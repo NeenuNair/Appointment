@@ -5,16 +5,17 @@ const jwt = require('jsonwebtoken');
 const AppointmentData = require('../models/appointmentData');
 
 
-const mongoose = require('mongoose');
-const db = 'mongodb+srv://user_neenu:dhyan29@mycluster.zxzp2.azure.mongodb.net/appointmentdb?retryWrites=true&w=majority';
+// const mongoose = require('mongoose');
+// const db = 'mongodb+srv://user_neenu:dhyan29@mycluster.zxzp2.azure.mongodb.net/appointmentdb?retryWrites=true&w=majority';
+// const db = 'mongodb+srv://user_neenu:dhyan29@mycluster.zxzp2.azure.mongodb.net/appointmentdb?retryWrites=true&w=majority&ssl=true';
 
-mongoose.connect(db, function(err){
-  if(err){
-      console.error('Error! ' + err)
-  } else {
-    console.log('Connected to mongodb')      
-  }
-});
+// mongoose.connect(db, function(err){
+//   if(err){
+//       console.error('Error! ' + err)
+//   } else {
+//     console.log('Connected to mongodb')      
+//   }
+// });
 var app = new express();
 
 function verifyToken(req,res,next){
@@ -146,25 +147,23 @@ router.get('/home', (req,res) => {
 });
 
 
-// router.get('/addorder', verifyToken, (req, res) => {
-// })
-
 router.post('/register', (req, res) => {
-let userData = req.body
-let user = new User(userData)
-user.save((err, registeredUser) => {
-  if (err) {
-    console.log(err)      
-  } else {
-    // let payload = {subject: registeredUser._id}
-    // let token = jwt.sign(payload, 'secretKey')
-    // res.status(200).send({token})
-    res.send({message:"Successfully Signed Up!"})
-  }
-})
-})
-
-router.post('/login', (req, res) => {
+  let userData = req.body
+  let user = new User(userData)
+  user.save((err, registeredUser) => {
+    if (err) {
+      console.log(err)      
+    } else {
+      // let payload = {subject: registeredUser._id}
+      // let token = jwt.sign(payload, 'secretKey')
+      // res.status(200).send({token})                  will coz login action
+    
+      res.send({message:"Successfully Signed Up!"})
+    }
+  })
+  })
+  
+  router.post('/login', (req, res) => {
   let userData = req.body
   console.log(userData)
   User.findOne({email: userData.email,password:userData.password}, (err, user) => {
@@ -182,5 +181,6 @@ router.post('/login', (req, res) => {
     }
   })
   })
-
-module.exports = router;
+   
+  module.exports = router;
+  

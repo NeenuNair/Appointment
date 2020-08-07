@@ -1,9 +1,13 @@
 .card-header{
-    font-size: 20px;
+    font-size: 26px;
+    text-align: center;
     font-family: 'Times New Roman', Times, serif;
     padding-left: 2.5%;
     background-color: rgb(219, 215, 216, 0.3);  
+    color: darkblue;
+    font-weight: bold;
 }
+
 
 label{
     font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;

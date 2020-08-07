@@ -2,7 +2,7 @@
     border: 2px solid;
     border-color: whitesmoke;
     padding: 30px 40px;
-    background-color: lightcyan ;
+    background-color: lightgrey;
     margin-top: 10vh;
     margin-bottom: 10vh;
     border-radius:  0px 0px 0px 0px ;
@@ -12,12 +12,12 @@
 }
 .form-group{
     color: rgb(20, 19, 19);
-    font-size: 14px;
-    font-family: Georgia, 'Times New Roman', Times, serif;
+    font-size: 16px;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
     margin-left: 1%;
 }
 .form-control{
-    font-size: 14px;
+    font-size: 16px;
     min-height: 20px;
     font-weight: lighter;
     border: 2px solid;

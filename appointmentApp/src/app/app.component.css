@@ -4,14 +4,14 @@
   }
   
   .bg-custom{
-    background-color:#333366;
+    background-color: teal;
   }
   
   .navbar-nav a{
     font-family:monospace;
-    font-size:23px;
+    font-size:24px;
     font-style: normal;
-    /* font-weight: lighter; */
+    font-weight: lighter;
     border: 1px solid transparent;
   }
   

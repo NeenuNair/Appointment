@@ -12,7 +12,7 @@ import {AuthService} from '../auth.service';
   styleUrls: ['./new-appointment.component.css']
 })
 export class NewAppointmentComponent implements OnInit {
-  title:String = "Add Appointment";
+  title:String = "Book Appointment";
   minDate: Date;
   maxDate: Date;
   slot_values: any = AppConstants.time_slots;
@@ -24,7 +24,7 @@ export class NewAppointmentComponent implements OnInit {
     this.minDate = new Date();
     this.maxDate = new Date();
     this.minDate.setDate(this.minDate.getDate());
-    this.maxDate.setDate(this.maxDate.getDate() + 2);
+    this.maxDate.setDate(this.maxDate.getDate() + 5);
 
   }
 

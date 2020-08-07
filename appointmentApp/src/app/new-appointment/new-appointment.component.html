@@ -10,14 +10,14 @@
 
                         <tr [class.has-error]="appointmentControlName.invalid && appointmentControlName.touched"
                         [class.has-success]="appointmentControlName.valid">
-                            <td><label>Name</label></td>
+                            <td><label>Name of the Patient</label></td>
                             <td class="row"><input type="text" name="a_name" [(ngModel)] ="appointmentItem.name"  placeholder="Enter your Name" #appointmentControlName="ngModel" required></td>
                             <span class="help-block" *ngIf="appointmentControlName.invalid && appointmentControlName.touched"> **Patients name is required </span>
                         </tr>
 
                         <tr [class.has-error]="appointmentControlAge.invalid && appointmentControlAge.touched"
                         [class.has-success]="appointmentControlAge.valid">
-                            <td><label>Age</label></td>
+                            <td><label>Age of the Patient</label></td>
                             <td class="row"><input type="text" name="a_age" [(ngModel)] ="appointmentItem.age"placeholder="Enter your Age" #appointmentControlAge="ngModel" required></td>
                             <span class="help-block" *ngIf="appointmentControlAge.invalid && appointmentControlAge.touched"> **Patients Age is required </span>
                         </tr>
@@ -45,7 +45,7 @@
 
                         <tr [class.has-error]="appointmentControlDate.invalid && appointmentControlDate.touched"
                         [class.has-success]="appointmentControlDate.valid">
-                            <td><label>Date of Appointment</label></td>
+                            <td><label>Preferred Date for Appointment</label></td>
                             <!-- <td><input type="date" name="a_date" [(ngModel)] ="appointmentItem.date" required ></td> -->
                            <td class="row">
                             <input type="text" id="adate"
@@ -60,7 +60,7 @@
                         
                         <tr [class.has-error]="appointmentControlId.invalid && appointmentControlId.touched"
                         [class.has-success]="appointmentControlId.valid">
-                            <td><label>Time Slot</label></td>
+                            <td><label>Preferred Time Slot</label></td>
                             <td class="row" >
                                 <select name="a-slot" class="form-control" [(ngModel)] ="appointmentItem.slot" #appointmentControlId="ngModel" required>
                                     <option  value="null" >Select your Time Slot</option>

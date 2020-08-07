@@ -1,6 +1,8 @@
+// const mongoose = require('mongoose');
 const mongoose = require('mongoose');
+mongoose.connect('mongodb://localhost:27017/AppointmentDB');
+const Schema = mongoose.Schema;
 
-const Schema= mongoose.Schema;
 var NewAppointmentSchema = new Schema({
     userId:String,
     name : String,
